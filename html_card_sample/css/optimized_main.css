@@ -1,0 +1,394 @@
+/* Reset */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* End of reset */
+body*> {
+    box-sizing: border-box;
+}
+
+/*Trobleshooting*/
+div {
+    border-bottom: 1px solid red;
+    border-left: 1px solid red;
+    border-top: 1px solid red;
+    border-right: 1px solid red;
+}
+/* End trobleshooting config */
+
+/* 
+#################
+# HTML ELEMENTS #
+#################
+*/
+div {
+    position: absolute;
+}
+
+p {
+    margin: 5px;
+    text-align: left;
+}
+
+/*
+    ----------------------
+    ----------------------
+            OVERFLOW
+    ----------------------
+    ----------------------
+*/
+.frame-header,
+.frame-type-line,
+.frame-text-box,
+.frame-opposite-card {
+    /* overflow: hidden; */
+}
+
+.frame-header,
+.frame-type-line {
+    display: flex;
+    width: 1300px;
+    left: 125px;
+}
+
+.frame-header {
+    top: 145px;
+    font-size: 2.3em;
+}
+
+.frame-type-line {
+    top: 1240px;
+    font-size: 2.0em;
+}
+
+/*
+  Tue 27/3
+*/
+.name,
+.type {
+    font-size: 1.7em;
+    font-weight: 600;
+}
+
+.mana-frame {
+    position: initial;
+    float: right;
+    margin-left: auto;
+    margin-right: 10px;
+    font-size: 1.5em;
+}
+
+.frame-text-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 3.5em;
+}
+
+.frame-text-box {
+    top: 1330px;
+    left: 130px;
+    width: 1283px;
+    height: 625px;
+}
+
+.frame-opposite-card {
+    border-bottom: 4px solid black;
+    border-left: 2px solid black;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-width: 8px;
+}
+
+.frame-opposite-card {
+    top: 1955px;
+    left: 115px;
+    width: 500px;
+    height: 75px;
+
+}
+
+.frame-opposite-card {
+    font-size: 3.5em;
+    margin-top: 10px;
+    align-self: baseline;
+    font-weight: 600;
+    text-align: center;
+    line-height: 75px;
+}
+
+.mana-frame-opposite-card {
+    float: right;
+    margin-left: auto;
+    margin-right: 10px;
+    justify-content: center;
+}
+
+
+.frame-power-toughness {
+    font-size: 5.0em;
+}
+
+.frame-power-toughness {
+    top: 1905px;
+    /* left: 1215px; */
+    left: 1235px;
+    width: 180px;
+    height: 80px;
+}
+
+.power-toughness {
+    top: 1330px;
+    left: 115px;
+    width: 1270px;
+    height: 520px;
+}
+
+
+.frame-loyalty {
+    top: 1860px;
+    left: 1200px;
+    width: 180px;
+    height: 80px;
+    font-size: 4.0em;
+}
+
+
+
+
+.sprite {
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.sprite-image {
+    background-image: url(../images/black_.png);
+}
+
+.sprite-image.creature {
+    background-image: url(../images/black_creature.png);
+}
+
+.sprite-image.legendary {
+    background-image: url(../images/black_legendary.png);
+}
+
+.sprite-image.legendary-creature {
+    background-image: url(../images/black_creaturelegendary.png);
+}
+
+
+.sprite-black {
+    width: 1540px;
+    height: 2140px;
+    background-position: -5px -5px;
+}
+
+
+/*
+###############
+# SPLIT CARDS #
+###############
+*/
+.split1,
+.split2 {
+    transform: rotate(-90deg);
+}
+
+
+.frame-header.split1,
+.frame-header.split2,
+.frame-type-line.split1,
+.frame-type-line.split2 {
+    width: 850px;
+    /* height: 80px; */
+}
+
+.frame-header.split1,
+.frame-header.split2 {
+    font-size: 2.3em;
+    left: -315px;
+}
+
+.frame-header.split1,
+.frame-type-line.split1  {
+    top: 1520px;
+}
+
+.frame-header.split2,
+.frame-type-line.split2 {
+    top: 505px;
+}
+
+.frame-type-line.split1,
+.frame-type-line.split2{
+    font-size: 1.5em;
+    left: 500px;
+}
+
+.frame-text-box.split1,
+.frame-text-box.split2 {
+    font-size: 3.0em;
+}
+
+.frame-text-box.split1,
+.frame-text-box.split2 {
+    width: 825px;
+    height: 470px;
+}
+
+.frame-text-box.split1,
+.frame-text-box.split2 {
+    left: 800px;
+}
+
+.frame-text-box.split1 {
+    top: 1325px;
+}
+
+.frame-text-box.split2 {
+    top: 315px;
+}
+
+.sprite-image.sprite-split {
+    background-image: url(../images/black_split.png);
+}
+
+/*
+###################
+# END SPLIT CARDS #
+###################
+*/
