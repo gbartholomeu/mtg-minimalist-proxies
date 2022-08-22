@@ -18,6 +18,12 @@ Third World Countries always struggled with MTG Cards and products.
 The first time I proxied a colored EDH deck it costed me around 25 Dollars and the quality was trash. I wanted to print high quality, minimalist (text only) proxies at home, so I adapted the project for my needs. I don't have to wait 1-2 weeks for a card to be delivered and I don't have to spend 300 dollars in a deck I don't know if I will like (Like I almost did with Atraxa super friends or Slivers).
 
 **WE NOW SUPPORT:**
+- PHYREXIAN MANA!!!! BUT... but but but... my printer does not print colors so I created new icons to represent phyrexian colored mana(The new ones from Dominaria United). They aren't the best, let's be honest, but from all the versions I developed and tried they were the best ones. **IF**... you want to use phyrexian mana with color just like the real ones, just replace the constant in use. I've added a comment to identify which constant is the one with the colored configuration.
+
+COLORED: ![colored_phyrexianmana.pdf](https://github.com/gbartholomeu/mtg-proxies/blob/master/SAMPLES/phyrexian_coloredIcons.pdf)
+
+Self-made minimalist: ![minimalist_phyrexianmana.pdf](https://github.com/gbartholomeu/mtg-proxies/blob/master/SAMPLES/phyrexian_selfMadeIcons.pdf)
+
 - Transform cards like [Rowan, Scholar of Sparks // Will, Scholar of Frost](https://scryfall.com/card/stx/156/rowan-scholar-of-sparks-will-scholar-of-frost)
 - Card with special icons in the name like [Growing Rites of Itlimoc](https://scryfall.com/card/xln/191/growing-rites-of-itlimoc-itlimoc-cradle-of-the-sun)
 - Color Indicator like [Aberrant Researcher // Perfected Form ](https://scryfall.com/card/soi/49/aberrant-researcher-perfected-form). Please be aware that an empty circle wouldn't be a great representation, so instead of colored circles the color indicator is the MANA SYMBOL instead. Check the card from [Nicol Bolas, the Ravager // Nicol Bolas, the Arisen](https://scryfall.com/card/m19/218/nicol-bolas-the-ravager-nicol-bolas-the-arisen?utm_source=mw_MTGWiki)
