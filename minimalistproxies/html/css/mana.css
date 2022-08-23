@@ -411,8 +411,12 @@
   content: "\e98f";
 }
 
-.ms-kamigawa-saga::before {
+.ms-dfc-saga::before {
   content: "\e9aa";
+}
+
+.ms-dfc-enchantment-kamigawa::before {
+  content: "\e9ab";
 }
 
 .ms-dfc-moon::before {
