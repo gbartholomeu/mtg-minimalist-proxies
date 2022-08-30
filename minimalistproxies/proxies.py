@@ -267,7 +267,7 @@ def replace_card_name_html(cards: list[Card]) -> str:
                 card_name = f'<span class="{MODAL_ICONS_MAPPING["modal_front"]}"></span> {card_name}'
             else:
                 card_name = f'<span class="{MODAL_ICONS_MAPPING["modal_back"]}"></span> {card_name}'
-        elif 'enchantment' in cards[2]['type_line'] and cards[2]['set'] == 'neo':
+        elif 'saga' in cards[2]['type_line'].lower() and cards[2]['set'].lower() == 'neo':
             if card_name.strip() == split_original[0].strip():
                 card_name = f'<span class="{MODAL_ICONS_MAPPING["neon-saga"]}"></span> {card_name}'
             else:
