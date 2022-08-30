@@ -149,6 +149,10 @@ PLANESWALKER_LOYALTY_MAPPING = {
     'loyalty_amount': 'ms-2x ms-loyalty-'
 }
 
+SAGA_COUNTER_MAPPING = {
+    'commom_css': 'saga ms ms-saga ms-2x ms-saga-'
+}
+
 MODAL_ICONS_MAPPING = {
     'day': 'ms ms-dfc-day',
     'night': 'ms ms-dfc-night',
@@ -160,5 +164,7 @@ MODAL_ICONS_MAPPING = {
     'emrakul': 'ms ms-dfc-emrakul',
     'modal_front': 'ms ms-dfc-modal-face',
     'modal_back': 'ms ms-dfc-modal-back',
-    'lesson': 'ms ms-dfc-lesson'
+    'lesson': 'ms ms-dfc-lesson',
+    'neon-saga': 'ms-dfc-saga',
+    'neon-enchantment': 'ms ms-dfc-enchantment-kamigawa'
 }

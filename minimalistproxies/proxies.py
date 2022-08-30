@@ -8,7 +8,7 @@ import re
 import asyncio
 from pyppeteer import launch
 from .constants import *
-import time
+import roman
 
 cache = Path(gettempdir()) / "scryfall_cache"
 cache.mkdir(parents=True, exist_ok=True)  # Create cache folder
@@ -23,7 +23,7 @@ def get_minimalist_proxies(card: Card, opposite_card: Card = [], full_card: Card
 
     prepare_html_css(card, opposite_card, full_card)
     loop = asyncio.get_event_loop()
-    call = convert_html_to_png(f'{cache}/html_temp/html_template.html', str(cache / file_name))
+    call = convert_html_to_png(f'{cache}/html_temp_{card["name"]}/html_template.html', str(cache / file_name))
     loop.run_until_complete(call)
 
     return str(cache / file_name)
@@ -38,7 +38,7 @@ def prepare_html_css(card: Card, opposite_card: Card, full_card: Card):
 def prepare_files(card_name: str):
     # I'll keep this card_name target until I finish developing most cards layouts
     src = f'{os.getcwd()}/minimalistproxies/html'
-    dest = f'{cache}/html_temp'
+    dest = f'{cache}/html_temp_{card_name}'
 
     if os.path.exists(dest):
         shutil.rmtree(dest)
@@ -59,8 +59,17 @@ def setup_card(cards: list[Card], html_file, css_file):
 def get_card_template(cards: list[Card]) -> str:
     template = 'black_'
 
-    if cards[0].__contains__('layout') and cards[0]['layout'].lower() in ['adventure', 'saga', 'flip']:
+    if cards[0].__contains__('layout') and cards[0]['layout'].lower() in ['adventure', 'flip', 'class']:
         template += 'empty'
+
+    elif cards[0].__contains__('layout') and cards[0]['layout'].lower() in ['saga']:
+        template += 'saga'
+        if 'legendary' in cards[0]['type_line'].lower():
+            template += 'legendary'
+    elif cards[2].__contains__('layout') and cards[2]['layout'].lower() in ['transform'] and  "saga" in cards[0]['type_line'].lower():
+        template += 'saga'
+        if 'legendary' in cards[0]['type_line'].lower():
+            template += 'legendary'       
     elif cards[2] and cards[2].__contains__('layout') and cards[2]['layout'].lower() == 'split':
         template += 'split'
     else:
@@ -145,11 +154,18 @@ def fill_middle_part_html(cards: list[Card]) -> str:
 
     else: 
         card_type = replace_color_indicator(cards[0])
-        middle_html  = f"""
-                            <div class="frame-type-line">
+        if (cards[0].__contains__('layout') and cards[0]['layout'].lower() in ['saga']) or (cards[2].__contains__('layout') and cards[2]['layout'].lower() in ['transform'] and  "saga" in cards[0]['type_line'].lower()):
+                  middle_html  = f"""
+                            <div class="frame-type-line saga">
                                 <h1 class="type">{card_type}</h1>
                             </div>
                             """
+        else:  
+            middle_html  = f"""
+                                <div class="frame-type-line">
+                                    <h1 class="type">{card_type}</h1>
+                                </div>
+                                """
 
     return middle_html
 
@@ -184,17 +200,24 @@ def fill_bottom_part_html(cards: list[Card]) -> str:
                                 </div>
                                 """
     else:
-        card_text = replace_text_symbols(cards[0]['oracle_text'])
+        card_text = replace_text_symbols(cards[0]['oracle_text'], cards[0])
         card_power_toughness = replace_card_power_toughness(cards[0])
         card_back = replace_back_card_info(cards)
         card_loyalty = replace_planeswalker_loyalty(cards[0])
 
         if card_text:
-            bottom_html += f"""
-                            <div class="frame-text-box">
+            if (cards[0].__contains__('layout') and cards[0]['layout'].lower() in ['saga']) or (cards[2].__contains__('layout') and cards[2]['layout'].lower() in ['transform'] and  "saga" in cards[0]['type_line'].lower()):
+                bottom_html  = f"""
+                            <div class="frame-text-box saga">
                                 {card_text}
                             </div>
-                            """ 
+                            """
+            else:
+                bottom_html += f"""
+                                <div class="frame-text-box">
+                                    {card_text}
+                                </div>
+                                """ 
         if card_power_toughness:
             bottom_html +=  f"""
                             <div class="frame-power-toughness">
@@ -244,6 +267,11 @@ def replace_card_name_html(cards: list[Card]) -> str:
                 card_name = f'<span class="{MODAL_ICONS_MAPPING["modal_front"]}"></span> {card_name}'
             else:
                 card_name = f'<span class="{MODAL_ICONS_MAPPING["modal_back"]}"></span> {card_name}'
+        elif 'enchantment' in cards[2]['type_line'] and cards[2]['set'] == 'neo':
+            if card_name.strip() == split_original[0].strip():
+                card_name = f'<span class="{MODAL_ICONS_MAPPING["neon-saga"]}"></span> {card_name}'
+            else:
+                card_name = f'<span class="{MODAL_ICONS_MAPPING["neon-enchantment"]}"></span> {card_name}'
 
     elif cards[0].__contains__('frame_effects') and 'lesson' in cards[0]['frame_effects']:
         card_name = f'<span class="{MODAL_ICONS_MAPPING["lesson"]}"></span> {card_name}'
@@ -274,6 +302,17 @@ def replace_mana_html(mana: str, replace_css_id: bool = True) -> str:
 
     return replaced_text
 
+def replace_counters(text: str, card: Card = []) -> str:
+    card_text = ''
+    if card  and card.__contains__('type_line') and 'planeswalker' in card['type_line'].lower():
+        card_text = replace_loyalty_counter(text)
+    elif card  and card.__contains__('type_line') and 'saga' in card['type_line'].lower():
+        card_text = replace_saga_counter(text)
+    else:
+        for line in text.splitlines():
+            card_text += f'<p>{line}</p>'
+
+    return card_text
 
 def replace_loyalty_counter(text: str) -> str:
     card_text = ''
@@ -297,10 +336,27 @@ def replace_loyalty_counter(text: str) -> str:
 
     return card_text
 
+def replace_saga_counter(text: str) -> str:
+    card_text = ''
 
-def replace_text_symbols(text: str) -> str:
-    loyalty_replaced = replace_loyalty_counter(text)
-    mana_replaced = replace_mana_html(loyalty_replaced, False)
+    for line in text.splitlines():
+        counters = re.findall('^([IV]{1,3})(?:, )?([IV]{1,3})?(.+)', line)
+        if len(counters) == 0:
+            card_text += f'<p>{line}</p>\n'
+        else:
+            css_counter = ''
+
+            css_counter = f'<span class="{SAGA_COUNTER_MAPPING["commom_css"]}{roman.fromRoman(counters[0][0].upper())}"></span>'
+            if counters[0][1]:
+                css_counter += f'<br><span class="{SAGA_COUNTER_MAPPING["commom_css"]}{roman.fromRoman(counters[0][1].upper())}"></span>'
+
+            card_text += f'<p>{css_counter}{counters[0][2].replace(" — ", "")}</p>\n'
+            
+    return card_text
+
+def replace_text_symbols(text: str, card: Card = []) -> str:
+    counters_replaced = replace_counters(text, card)
+    mana_replaced = replace_mana_html(counters_replaced, False)
 
     return mana_replaced
 
