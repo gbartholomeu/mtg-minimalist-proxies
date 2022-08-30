@@ -307,7 +307,7 @@ body*> {
 .frame-type-line,
 .frame-text-box,
 .frame-opposite-card  {
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 
@@ -354,6 +354,13 @@ body*> {
 .frame-type-line {
     position: absolute;
     top: 1225px;
+    font-size: 1.8em;
+    left: 115px;
+}
+
+.frame-type-line.saga {
+    position: absolute;
+    top: 1860px;
     font-size: 1.8em;
     left: 115px;
 }
@@ -405,10 +412,10 @@ body*> {
 }
 
 .frame-text-box {
-    /* border-bottom: 4px solid red;
+    border-bottom: 4px solid red;
     border-left: 2px solid red;
     border-top: 1px solid red;
-    border-right: 1px solid red; */
+    border-right: 1px solid red;
 }
 
 .frame-text-box {
@@ -418,7 +425,7 @@ body*> {
     flex-direction: column;
     justify-content: space-around;
     padding: 50px 6px;
-    line-height: 1.5em;
+    /* line-height: 1.5em; */
     font-size: 3.5em;
 }
 
@@ -428,6 +435,14 @@ body*> {
     left: 115px;
     width: 1270px;
     height: 520px;
+}
+
+.frame-text-box.saga{
+    position: absolute;
+    top: 255px;
+    left: 125px;
+    width: 635px;
+    height: 1460px;   
 }
 
 .frame-opposite-card {
@@ -592,8 +607,19 @@ fbi-left {
     background-image: url(../images/black_split.png);
 }
 
+.sprite-image.sprite-saga{
+    background-image: url(../images/black_saga.png);
+}
+.sprite-image.sprite-legendary-saga{
+    background-image: url(../images/black_sagalegendary.png);
+}
 .sprite-black{
     width: 1540px;
     height: 2140px;
     background-position: -5px -5px;
+}
+
+span.saga{
+    position: relative;
+    left: -50px;
 }

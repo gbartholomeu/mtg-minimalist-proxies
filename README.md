@@ -18,6 +18,7 @@ Third World Countries always struggled with MTG Cards and products.
 The first time I proxied a colored EDH deck it costed me around 25 Dollars and the quality was trash. I wanted to print high quality, minimalist (text only) proxies at home, so I adapted the project for my needs. I don't have to wait 1-2 weeks for a card to be delivered and I don't have to spend 300 dollars in a deck I don't know if I will like (Like I almost did with Atraxa super friends or Slivers).
 
 **WE NOW SUPPORT:**
+- (messy support for) Sagas like [Urza's Saga](https://scryfall.com/card/mh2/259/urzas-saga);
 - PHYREXIAN MANA!!!! BUT... but but but... my printer does not print colors so I created new icons to represent phyrexian colored mana(The new ones from Dominaria United). They aren't the best, let's be honest, but from all the versions I developed and tried they were the best ones. **IF**... you want to use phyrexian mana with color just like the real ones, just replace the constant in use. I've added a comment to identify which constant is the one with the colored configuration.
 
 COLORED: ![colored_phyrexianmana.pdf](https://github.com/gbartholomeu/mtg-proxies/blob/master/SAMPLES/phyrexian_coloredIcons.pdf)
@@ -32,6 +33,8 @@ Self-made minimalist: ![minimalist_phyrexianmana.pdf](https://github.com/gbartho
 - Tokens: No big secret here. It's just the black frame with the token information. 
 Tip: Use the arena format for printing Tokens. The plain text isn't enought to distinguish token stats.
 
+Tip2: When printing cards with Meld, be sure to provide all three cards name. I didn't update the icon for Meld cards yet...
+
 Note: Split cards have only one design, the rotated version like [Fire // Ice](https://scryfall.com/card/mh2/290/fire-ice). I was lazy...
 
 The transform cards tested had a variety of special symbols like: 
@@ -43,7 +46,6 @@ The transform cards tested had a variety of special symbols like:
 - Lessons: [Academic Probation](https://scryfall.com/card/stx/7/academic-probation)
 
 **THIS VERSION DOES NOT SUPPORT (YET)**
-- Sagas like [Urza's Saga](https://scryfall.com/card/mh2/259/urzas-saga);
 - Adventures like [Murderous Rider // Swift End](https://scryfall.com/card/eld/97/murderous-rider-swift-end);
 - Cards with huge texts like [Ob Nixilis, the Adversary](https://scryfall.com/card/snc/206/ob-nixilis-the-adversary) and [Jaya, Fiery Negotiator](https://scryfall.com/card/dmu/133/jaya-fiery-negotiator)
 - Flip cards like [Bushi Tenderfoot //  Kenzo the Hardhearted1](https://scryfall.com/card/chk/2/bushi-tenderfoot-kenzo-the-hardhearted)

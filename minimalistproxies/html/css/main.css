@@ -307,7 +307,7 @@ body*> {
 .frame-type-line,
 .frame-text-box,
 .frame-opposite-card  {
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 
@@ -358,6 +358,12 @@ body*> {
     left: 115px;
 }
 
+.frame-type-line.saga {
+    position: absolute;
+    top: 1860px;
+    font-size: 1.8em;
+    left: 115px;
+}
 /*
   Tue 27/3
 */
@@ -418,7 +424,7 @@ body*> {
     flex-direction: column;
     justify-content: space-around;
     padding: 50px 6px;
-    line-height: 1.5em;
+    /* line-height: 1.5em; */
     font-size: 3.5em;
 }
 
@@ -428,6 +434,14 @@ body*> {
     left: 115px;
     width: 1270px;
     height: 520px;
+}
+
+.frame-text-box.saga{
+    position: absolute;
+    top: 255px;
+    left: 125px;
+    width: 635px;
+    height: 1460px;   
 }
 
 .frame-opposite-card {
@@ -578,4 +592,9 @@ fbi-left {
     width: 1540px;
     height: 2140px;
     background-position: -5px -5px;
+}
+
+span.saga{
+    position: relative;
+    left: -50px;
 }
