@@ -165,6 +165,6 @@ MODAL_ICONS_MAPPING = {
     'modal_front': 'ms ms-dfc-modal-face',
     'modal_back': 'ms ms-dfc-modal-back',
     'lesson': 'ms ms-dfc-lesson',
-    'neon-saga': 'ms-dfc-saga',
+    'neon-saga': 'ms ms-dfc-saga',
     'neon-enchantment': 'ms ms-dfc-enchantment-kamigawa'
 }
