@@ -486,33 +486,18 @@ body*> {
 }
 
 .frame-power-toughness {
-    /* margin: 0 10px; */
-    /*background-image: url(https://image.ibb.co/dFcNx7/tile_bg_2.jpg);*/
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: space-around; */
-    /* padding: 50px 6px; */
-    /* line-height: 1.5em; */
-    font-size: 5.0em;
+    font-size: 4.4em;
 }
 
 .frame-power-toughness {
     position: absolute;
     top: 1905px;
     /* left: 1215px; */
-    left: 1235px;
-    width: 180px;
+    left: 1205px;
+    width: 210px;
     height: 80px;
+    text-align: center;
 }
-
-.power-toughness {
-    position: absolute;
-    top: 1330px;
-    left: 115px;
-    width: 1270px;
-    height: 520px;
-}
-
 
 .frame-loyalty {
     position: absolute;

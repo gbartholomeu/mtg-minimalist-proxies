@@ -21,10 +21,13 @@ def get_minimalist_proxies(card: Card, opposite_card: Card = [], full_card: Card
         file_name += f"{card['name'].replace(' ','_').replace('//', '_')}-{full_card['set']}"
     file_name += '.png'
 
-    prepare_html_css(card, opposite_card, full_card)
-    loop = asyncio.get_event_loop()
-    call = convert_html_to_png(f'{cache}/html_temp_{card["name"]}/html_template.html', str(cache / file_name))
-    loop.run_until_complete(call)
+    if not card.__contains__('skip_creation') or (full_card and not full_card.__contains__('skip_creation')):
+        prepare_html_css(card, opposite_card, full_card)
+        loop = asyncio.get_event_loop()
+        call = convert_html_to_png(f'{cache}/html_temp_{card["name"]}/html_template.html', str(cache / file_name))
+        loop.run_until_complete(call)
+    else: 
+        print(f'Skipping {file_name} card creation')
 
     return str(cache / file_name)
 
@@ -364,7 +367,7 @@ def replace_text_symbols(text: str, card: Card = []) -> str:
 def replace_card_power_toughness(card: Card) -> str:
     card_power_toughness = ''
     if card.__contains__('power'):
-        card_power_toughness = f'<h1 class="power-thoughness">{card["power"]} / {card["toughness"]}</h1>'
+        card_power_toughness = f'<h1 class="power-thoughness">{card["power"]}/{card["toughness"]}</h1>'
 
     return card_power_toughness
 

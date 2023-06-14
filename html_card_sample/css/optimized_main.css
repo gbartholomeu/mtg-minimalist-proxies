@@ -259,22 +259,15 @@ p {
 
 
 .frame-power-toughness {
-    font-size: 5.0em;
+    font-size: 4.4em;
 }
 
 .frame-power-toughness {
     top: 1905px;
     /* left: 1215px; */
-    left: 1235px;
-    width: 180px;
+    left: 1205px;
+    width: 250px;
     height: 80px;
-}
-
-.power-toughness {
-    top: 1330px;
-    left: 115px;
-    width: 1270px;
-    height: 520px;
 }
 
 
